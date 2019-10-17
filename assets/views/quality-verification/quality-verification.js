@@ -17,6 +17,7 @@
 
         $scope.upload = () => {
             console.log($scope.image);
+            $scope._image = window.URL.createObjectURL($scope.image[0]);
         };
     }
 })();

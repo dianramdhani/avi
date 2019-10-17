@@ -203,7 +203,7 @@ eval("(function () {\r\n    'use strict';\r\n\r\n    window.app\r\n        .conf
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = \"<div class=\\\"d-sm-flex align-items-center justify-content-between mg-b-20 mg-lg-b-25 mg-xl-b-30\\\"> <h4 class=\\\"mg-b-0 tx-spacing--1\\\">Quality Verfication</h4> <nav aria-label=breadcrumb> <ol class=\\\"breadcrumb breadcrumb-style1 mg-b-10\\\"> <li class=breadcrumb-item>Home</li> <li class=\\\"breadcrumb-item active\\\" aria-current=page>Quality Verfication</li> </ol> </nav> </div> <label for=image>Image: </label> <input type=file name=image accept=image/x-png,image/jpeg ng-model=image tr-files> <button ng-click=upload()>Upload</button>\";\n\n//# sourceURL=webpack:///./assets/views/quality-verification/quality-verification.html?");
+eval("module.exports = \"<div class=\\\"d-sm-flex align-items-center justify-content-between mg-b-20 mg-lg-b-25 mg-xl-b-30\\\"> <h4 class=\\\"mg-b-0 tx-spacing--1\\\">Quality Verfication</h4> <nav aria-label=breadcrumb> <ol class=\\\"breadcrumb breadcrumb-style1 mg-b-10\\\"> <li class=breadcrumb-item>Home</li> <li class=\\\"breadcrumb-item active\\\" aria-current=page>Quality Verfication</li> </ol> </nav> </div> <label for=image>Image: </label> <input type=file name=image accept=image/x-png,image/jpeg ng-model=image tr-files> <button ng-click=upload()>Upload</button> <img ng-src={{_image}}>\";\n\n//# sourceURL=webpack:///./assets/views/quality-verification/quality-verification.html?");
 
 /***/ }),
 
@@ -214,7 +214,7 @@ eval("module.exports = \"<div class=\\\"d-sm-flex align-items-center justify-con
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("(function () {\r\n    'use strict';\r\n\r\n    // Usage:\r\n    // Quality verification view.\r\n\r\n    window.app\r\n        .component('qualityVerification', {\r\n            template: __webpack_require__(/*! ./quality-verification.html */ \"./assets/views/quality-verification/quality-verification.html\"),\r\n            controller: _\r\n        });\r\n\r\n    _.$inject = ['$scope'];\r\n    function _($scope) {\r\n        let $ctrl = this;\r\n        $ctrl.$onInit = () => { };\r\n\r\n        $scope.upload = () => {\r\n            console.log($scope.image);\r\n        };\r\n    }\r\n})();\n\n//# sourceURL=webpack:///./assets/views/quality-verification/quality-verification.js?");
+eval("(function () {\r\n    'use strict';\r\n\r\n    // Usage:\r\n    // Quality verification view.\r\n\r\n    window.app\r\n        .component('qualityVerification', {\r\n            template: __webpack_require__(/*! ./quality-verification.html */ \"./assets/views/quality-verification/quality-verification.html\"),\r\n            controller: _\r\n        });\r\n\r\n    _.$inject = ['$scope'];\r\n    function _($scope) {\r\n        let $ctrl = this;\r\n        $ctrl.$onInit = () => { };\r\n\r\n        $scope.upload = () => {\r\n            console.log($scope.image);\r\n            $scope._image = window.URL.createObjectURL($scope.image[0]);\r\n        };\r\n    }\r\n})();\n\n//# sourceURL=webpack:///./assets/views/quality-verification/quality-verification.js?");
 
 /***/ }),
 
