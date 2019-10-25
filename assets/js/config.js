@@ -3,6 +3,6 @@
 
     window.app
         .constant('CONFIG', {
-            API: 'http://192.168.9.19:8081'
+            API: 'http://192.168.11.150:8081'
         });
 })();

@@ -7,7 +7,18 @@
         </ol>
     </nav>
 </div>
-<label for="image">Image: </label>
-<input type="file" name="image" accept="image/x-png,image/jpeg" ng-model="image" tr-files>
-<button ng-click="upload()">Upload</button>
-<img ng-src="{{_image}}">
+<form name="formQualityVerification" ng-submit="upload()">
+    <label for="imgStd">Standard Image: </label>
+    <input type="file" name="imgStd" accept="image/x-png,image/jpeg" ng-model="imgStd" tr-files required>
+    <label for="imgCheck">Check Image: </label>
+    <input type="file" name="imgCheck" accept="image/x-png,image/jpeg" ng-model="imgCheck" tr-files required>
+    <button type="submit">Upload</button>
+</form>
+<div ng-if="_imgRes">
+    <h6>Standard Image: </h6>
+    <img ng-src="{{_imgStd}}">
+    <h6>Check Image: </h6>
+    <img ng-src="{{_imgCheck}}">
+    <h6>Image Result: </h6>
+    <img ng-if="_imgRes" ng-src="{{_imgRes}}">
+</div>

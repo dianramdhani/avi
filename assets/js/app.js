@@ -23,6 +23,9 @@ window.app = angular.module('AVI', ['ui.router', 'ngCookies']);
     }
 })();
 
+// SERVICES
+require('../services/image.service');
+
 // ROUTES
 require('../routes/app.route');
 require('../routes/user.route');
