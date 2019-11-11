@@ -34,6 +34,16 @@
                             to: 'user.qualityVerification',
                             params: {}
                         },
+                        active: false
+                    },
+                    {
+                        type: 'link',
+                        label: 'Face Compare',
+                        icon: 'monitor',
+                        state: {
+                            to: 'user.faceCompare',
+                            params: {}
+                        },
                         active: true
                     },
                 ]

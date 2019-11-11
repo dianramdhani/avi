@@ -1,0 +1,16 @@
+<div class="d-sm-flex align-items-center justify-content-between mg-b-20 mg-lg-b-25 mg-xl-b-30">
+    <h4 class="mg-b-0 tx-spacing--1">Face Compare</h4>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb breadcrumb-style1 mg-b-10">
+            <li class="breadcrumb-item">Home</li>
+            <li class="breadcrumb-item active" aria-current="page">Face Compare</li>
+        </ol>
+    </nav>
+</div>
+<form name="formFaceCompare" ng-submit="upload()">
+    <label for="imgSource">Image Source: </label>
+    <input type="file" name="imgSource" accept="image/x-png,image/jpeg" ng-model="imageSource" tr-files required>
+    <label for="imgTarget">Image Target: </label>
+    <input type="file" name="imgTarget" accept="image/x-png,image/jpeg" ng-model="imageTarget" tr-files required>
+    <button type="submit">Upload</button>
+</form>
