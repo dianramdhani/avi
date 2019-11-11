@@ -1,0 +1,24 @@
+<div class="d-sm-flex align-items-center justify-content-between mg-b-20 mg-lg-b-25 mg-xl-b-30">
+    <h4 class="mg-b-0 tx-spacing--1">Quality Verfication</h4>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb breadcrumb-style1 mg-b-10">
+            <li class="breadcrumb-item">Home</li>
+            <li class="breadcrumb-item active" aria-current="page">Quality Verfication</li>
+        </ol>
+    </nav>
+</div>
+<form name="formQualityVerification" ng-submit="upload()">
+    <label for="imgStd">Standard Image: </label>
+    <input type="file" name="imgStd" accept="image/x-png,image/jpeg" ng-model="imgStd" tr-files required>
+    <label for="imgCheck">Check Image: </label>
+    <input type="file" name="imgCheck" accept="image/x-png,image/jpeg" ng-model="imgCheck" tr-files required>
+    <button type="submit">Upload</button>
+</form>
+<div ng-if="_imgRes">
+    <h6>Standard Image: </h6>
+    <img ng-src="{{_imgStd}}">
+    <h6>Check Image: </h6>
+    <img ng-src="{{_imgCheck}}">
+    <h6>Image Result: </h6>
+    <img ng-if="_imgRes" ng-src="{{_imgRes}}">
+</div>
