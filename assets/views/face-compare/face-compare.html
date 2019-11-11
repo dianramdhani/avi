@@ -7,10 +7,34 @@
         </ol>
     </nav>
 </div>
-<form name="formFaceCompare" ng-submit="upload()">
-    <label for="imgSource">Image Source: </label>
-    <input type="file" name="imgSource" accept="image/x-png,image/jpeg" ng-model="imageSource" tr-files required>
-    <label for="imgTarget">Image Target: </label>
-    <input type="file" name="imgTarget" accept="image/x-png,image/jpeg" ng-model="imageTarget" tr-files required>
-    <button type="submit">Upload</button>
+<form name="formFaceCompare" class="wd-800 d-flex justify-content-between" ng-submit="upload()">
+    <div class="row">
+        <div class="col-6">
+            <div>
+                <label for="imgSource">Image Source: </label>
+                <input type="file" name="imgSource" accept="image/x-png,image/jpeg" ng-model="imageSource" tr-files
+                    required>
+            </div>
+            <img class="pd-t-10" ng-src="{{_imageSource}}">
+        </div>
+        <div class="col-6">
+            <div>
+                <label for="imgTarget">Image Target: </label>
+                <input type="file" name="imgTarget" accept="image/x-png,image/jpeg" ng-model="imageTarget" tr-files
+                    required>
+            </div>
+            <img class="pd-t-10" ng-src="{{_imageTarget}}">
+        </div>
+    </div>
+    <div>
+        <button type="submit">Upload</button>
+    </div>
 </form>
+<div ng-if="result">
+    <hr>
+    <h6>Result</h6>
+    <ul>
+        <li><strong>Comparation: </strong>{{result.comparation}}</li>
+        <li><strong>Percentage: </strong>{{result.percentage}}</li>
+    </ul>
+</div>
