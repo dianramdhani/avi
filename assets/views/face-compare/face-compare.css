@@ -1,0 +1,9 @@
+face-compare .custom-center {
+    text-align: center;
+}
+
+@media (min-width: 992px) {
+    face-compare .custom-center {
+        text-align: left;
+    }
+}

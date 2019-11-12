@@ -7,27 +7,31 @@
         </ol>
     </nav>
 </div>
-<form name="formFaceCompare" class="wd-800 d-flex justify-content-between" ng-submit="upload()">
-    <div class="row">
-        <div class="col-6">
-            <div>
-                <label for="imgSource">Image Source: </label>
-                <input type="file" name="imgSource" accept="image/x-png,image/jpeg" ng-model="imageSource" tr-files
-                    required>
-            </div>
-            <img class="pd-t-10 img-fluid" ng-src="{{_imageSource}}">
+<form name="formFaceCompare" class="row" ng-submit="upload()">
+    <div class="col-lg-5">
+        <h6>Image Source:</h6>
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" id="imgSource" name="imgSource" accept="image/x-png,image/jpeg"
+                ng-model="imageSource" required tr-files tr-files required>
+            <label class="custom-file-label" for="imgSource">Choose image</label>
         </div>
-        <div class="col-6">
-            <div>
-                <label for="imgTarget">Image Target: </label>
-                <input type="file" name="imgTarget" accept="image/x-png,image/jpeg" ng-model="imageTarget" tr-files
-                    required>
-            </div>
-            <img class="pd-t-10 img-fluid" ng-src="{{_imageTarget}}">
+        <div class="custom-center">
+            <img class="pd-y-10 img-fluid" ng-src="{{_imageSource}}">
         </div>
     </div>
-    <div>
-        <button type="submit">Upload</button>
+    <div class="col-lg-5">
+        <h6>Image Target:</h6>
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" id="imgTarget" name="imgTarget" accept="image/x-png,image/jpeg"
+                ng-model="imageTarget" required tr-files tr-files required>
+            <label class="custom-file-label" for="imgTarget">Choose image</label>
+        </div>
+        <div class="custom-center">
+            <img class="pd-y-10 img-fluid" ng-src="{{_imageTarget}}">
+        </div>
+    </div>
+    <div class="col-lg-2 text-right">
+        <button class="btn btn-primary" type="submit">Upload</button>
     </div>
 </form>
 <div ng-if="result">

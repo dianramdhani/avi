@@ -1,3 +1,5 @@
+require('./face-compare.css');
+
 (function () {
     'use strict';
 
