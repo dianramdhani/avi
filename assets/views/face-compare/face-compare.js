@@ -12,8 +12,8 @@ require('./face-compare.css');
             controller: _
         });
 
-    _.$inject = ['$scope', 'FaceImageService'];
-    function _($scope, FaceImageService) {
+    _.$inject = ['$scope', 'FaceImageService', 'UtilService'];
+    function _($scope, FaceImageService, UtilService) {
         let $ctrl = this;
         $ctrl.$onInit = () => {
             $scope.$watch('imageSource', () => {
@@ -28,9 +28,11 @@ require('./face-compare.css');
             });
         };
 
-        $scope.upload = async () => {
-            $scope.result = await FaceImageService.faceCompare({ imageSource: $scope.imageSource, imageTarget: $scope.imageTarget });
-            $scope.$apply();
+        $scope.upload = () => {
+            UtilService.trLoadingProcess(async () => {
+                $scope.result = await FaceImageService.faceCompare({ imageSource: $scope.imageSource, imageTarget: $scope.imageTarget });
+                $scope.$apply();
+            });
         };
     }
 })();

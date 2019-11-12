@@ -24,6 +24,7 @@ window.app = angular.module('AVI', ['ui.router', 'ngCookies']);
 })();
 
 // SERVICES
+require('../services/util.service');
 require('../services/image.service');
 require('../services/face-image.service');
 
@@ -36,6 +37,7 @@ require('../directives/tr-files.directive');
 
 // COMPONENTS
 require('../components/tr-wrapper/tr-wrapper');
+require('../components/tr-loading/tr-loading');
 
 // VIEWS
 require('../views/user-container/user-container');
