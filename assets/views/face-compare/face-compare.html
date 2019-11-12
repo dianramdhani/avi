@@ -7,38 +7,40 @@
         </ol>
     </nav>
 </div>
-<form name="formFaceCompare" class="row" ng-submit="upload()">
-    <div class="col-lg-5">
-        <h6>Image Source:</h6>
-        <div class="custom-file">
-            <input type="file" class="custom-file-input" id="imgSource" name="imgSource" accept="image/x-png,image/jpeg"
-                ng-model="imageSource" required tr-files tr-files required>
-            <label class="custom-file-label" for="imgSource">Choose image</label>
+<div class="card">
+    <h6 class="card-header pd-t-20 pd-b-0 bd-b-0">Images Upload</h6>
+    <form name="formFaceCompare" class="card-body pd-20 row" ng-submit="upload()">
+        <div class="col-md-6">
+            <strong>Image Source:</strong>
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" id="imgSource" name="imgSource"
+                    accept="image/x-png,image/jpeg" ng-model="imageSource" required tr-files tr-files required>
+                <label class="custom-file-label" for="imgSource">Choose image</label>
+            </div>
+            <div class="text-center">
+                <img class="pd-y-10 img-fluid" ng-src="{{_imageSource}}">
+            </div>
         </div>
-        <div class="custom-center">
-            <img class="pd-y-10 img-fluid" ng-src="{{_imageSource}}">
+        <div class="col-md-6">
+            <strong>Image Target:</strong>
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" id="imgTarget" name="imgTarget"
+                    accept="image/x-png,image/jpeg" ng-model="imageTarget" required tr-files tr-files required>
+                <label class="custom-file-label" for="imgTarget">Choose image</label>
+            </div>
+            <div class="text-center">
+                <img class="pd-y-10 img-fluid" ng-src="{{_imageTarget}}">
+            </div>
         </div>
+        <div class="col-12 text-right">
+            <button class="btn btn-primary" type="submit">Upload</button>
+        </div>
+    </form>
+    <div class="card-footer" ng-if="result">
+        <h6>Result</h6>
+        <ul>
+            <li><strong>Comparison: </strong>{{result.comparation}}</li>
+            <li><strong>Percentage: </strong>{{result.percentage | number : 2}}</li>
+        </ul>
     </div>
-    <div class="col-lg-5">
-        <h6>Image Target:</h6>
-        <div class="custom-file">
-            <input type="file" class="custom-file-input" id="imgTarget" name="imgTarget" accept="image/x-png,image/jpeg"
-                ng-model="imageTarget" required tr-files tr-files required>
-            <label class="custom-file-label" for="imgTarget">Choose image</label>
-        </div>
-        <div class="custom-center">
-            <img class="pd-y-10 img-fluid" ng-src="{{_imageTarget}}">
-        </div>
-    </div>
-    <div class="col-lg-2 text-right">
-        <button class="btn btn-primary" type="submit">Upload</button>
-    </div>
-</form>
-<div ng-if="result">
-    <hr>
-    <h6>Result</h6>
-    <ul>
-        <li><strong>Comparison: </strong>{{result.comparation}}</li>
-        <li><strong>Percentage: </strong>{{result.percentage | number : 2}}</li>
-    </ul>
 </div>
