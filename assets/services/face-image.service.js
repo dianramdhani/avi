@@ -7,6 +7,8 @@
     FaceImageService.$inject = ['$http', 'CONFIG'];
     function FaceImageService($http, CONFIG) {
         this.faceCompare = faceCompare;
+        this.getAllResult = getAllResult;
+        this.getImageDataUrl = getImageDataUrl;
 
         const url = CONFIG.API2;
 
@@ -18,6 +20,14 @@
                 transformResponse: angular.identity,
                 headers: { 'Content-Type': undefined }
             }).then(res => JSON.parse(res.data));
+        }
+
+        function getAllResult() {
+            return $http.get(`${url}/getAllResult`);
+        }
+
+        function getImageDataUrl({ imgUrl }) {
+            return `${url}/getImageData/${imgUrl}`;
         }
     }
 })();
