@@ -14,8 +14,13 @@ require('./face-compare.css');
 
     _.$inject = ['$scope', 'FaceImageService', 'UtilService'];
     function _($scope, FaceImageService, UtilService) {
+        const updateData = async () => {
+            $scope.data = await FaceImageService.getAllResult().then(_ => _.data);
+            $scope.$apply();
+        };
         let $ctrl = this;
         $ctrl.$onInit = () => {
+            updateData();
             $scope.$watch('imageSource', () => {
                 if ($scope.imageSource) {
                     $scope._imageSource = window.URL.createObjectURL($scope.imageSource[0]);
@@ -32,7 +37,12 @@ require('./face-compare.css');
             UtilService.trLoadingProcess(async () => {
                 $scope.result = await FaceImageService.faceCompare({ imageSource: $scope.imageSource, imageTarget: $scope.imageTarget });
                 $scope.$apply();
+                updateData();
             });
+        };
+
+        $scope.loadImg = (imgUrl) => {
+            return FaceImageService.getImageDataUrl({ imgUrl });
         };
     }
 })();

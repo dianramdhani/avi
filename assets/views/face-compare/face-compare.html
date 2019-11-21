@@ -44,3 +44,21 @@
         </ul>
     </div>
 </div>
+<div>
+    <table border="1">
+        <thead>
+            <th>Image Source</th>
+            <th>Image Target</th>
+            <th>Comparation</th>
+            <th>Percentage</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="_data in data">
+                <td><img ng-src="{{loadImg(_data.imageSource)}}"></td>
+                <td><img ng-src="{{loadImg(_data.imageTarget)}}"></td>
+                <td>{{_data.comparation}}</td>
+                <td>{{_data.percentage}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
