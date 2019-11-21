@@ -45,20 +45,68 @@
     </div>
 </div>
 <div>
-    <table border="1">
-        <thead>
-            <th>Image Source</th>
-            <th>Image Target</th>
-            <th>Comparation</th>
-            <th>Percentage</th>
-        </thead>
-        <tbody>
-            <tr ng-repeat="_data in data">
-                <td><img ng-src="{{loadImg(_data.imageSource)}}"></td>
-                <td><img ng-src="{{loadImg(_data.imageTarget)}}"></td>
-                <td>{{_data.comparation}}</td>
-                <td>{{_data.percentage}}</td>
-            </tr>
-        </tbody>
-    </table>
+
+</div>
+<div class="row row-xs mg-t-10">
+    <div class="card col-xl-9">
+        <h6 class="card-header pd-t-20 pd-b-0 bd-b-0">List of Data</h6>
+        <div class="card-body pd-20">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <th>Image Source</th>
+                        <th>Image Target</th>
+                        <th>Comparison</th>
+                        <th>Percentage</th>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="_data in data" ng-click="showImg(_data)">
+                            <td><img ng-src="{{loadImg(_data.imageSource)}}" style="height: 100px"></td>
+                            <td><img ng-src="{{loadImg(_data.imageTarget)}}" style="height: 100px"></td>
+                            <td>{{_data.comparation}}</td>
+                            <td>{{_data.percentage | number : 2}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalViewImage" tabindex="-1" role="dialog" aria-labelledby="modalViewImage"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title">Show Image</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" ng-if="imgView">
+                <h6>Image Source</h6>
+                <div class="text-center">
+                    <img class="img-fluid" ng-src="{{loadImg(imgView.imageSource)}}">
+                </div>
+                <h6 class="pd-t-10">Image Target</h6>
+                <div class="text-center">
+                    <img class="img-fluid" ng-src="{{loadImg(imgView.imageTarget)}}">
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-dashboard mg-b-0 tr-fixed-table">
+                        <tbody>
+                            <tr>
+                                <th>Comparison</th>
+                                <td class="text-right ng-binding">{{imgView.comparation}}</td>
+                            </tr>
+                            <tr>
+                                <th>Percentage</th>
+                                <td class="text-right ng-binding">{{imgView.percentage}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
