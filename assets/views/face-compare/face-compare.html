@@ -75,7 +75,7 @@
 
 <div class="modal fade" id="modalViewImage" tabindex="-1" role="dialog" aria-labelledby="modalViewImage"
     aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h6 class="modal-title">Show Image</h6>
@@ -84,13 +84,15 @@
                 </button>
             </div>
             <div class="modal-body" ng-if="imgView">
-                <h6>Image Source</h6>
-                <div class="text-center">
-                    <img class="img-fluid" ng-src="{{loadImg(imgView.imageSource)}}">
-                </div>
-                <h6 class="pd-t-10">Image Target</h6>
-                <div class="text-center">
-                    <img class="img-fluid" ng-src="{{loadImg(imgView.imageTarget)}}">
+                <div class="row">
+                    <div class="col-md-6 tx-center">
+                        <h6>Image Source</h6>
+                        <img class="img-fluid" ng-src="{{loadImg(imgView.imageSource)}}">
+                    </div>
+                    <div class="col-md-6 tx-center">
+                        <h6>Image Target</h6>
+                        <img class="img-fluid" ng-src="{{loadImg(imgView.imageTarget)}}">
+                    </div>
                 </div>
                 <div class="table-responsive">
                     <table class="table table-dashboard mg-b-0 tr-fixed-table">
